@@ -1,0 +1,53 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+import AboutMe from "@/components/AboutMe.astro";
+import Experience from "@/components/Experience.astro";
+import Hero from "@/components/Hero.astro";
+import Project from "@/components/Project.astro";
+import SectionContainer from "@/components/SectionContainer.astro";
+import TitleSection from "@/components/TitleSection.astro";
+import Code from "@/icons/Code.astro";
+import Profile from "@/icons/Profile.astro";
+import Suitcase from "@/icons/Suitcase.astro";
+---
+
+<Layout
+  title="Portafolio Web De Cristian Balza - Desarrollador y programador Web."
+>
+  <main class="px-4">
+    <SectionContainer class="py-16 md:py-36">
+      <Hero>
+      <slot />
+    </Hero>
+    </SectionContainer>
+
+<div class="space-y-24">
+
+    <SectionContainer id="experiencia">
+      <h2 class="text-2xl font-semibold mb-6 flex gap-x-4 items-center">
+        <Suitcase class="size-7" />
+        Experiencia Laboral
+      </h2>
+      <Experience />
+    </SectionContainer>
+
+    <SectionContainer id="proyectos">
+      <h2 class="text-2xl font-semibold mb-6 flex gap-x-4 items-center">
+        <Code class="size-7" />
+        Proyectos
+      </h2>
+      <Project />
+    </SectionContainer>
+
+    <SectionContainer id="sobre-mi">
+      <TitleSection>
+        <Profile class="size-8" />
+        Sobre Mi
+      </TitleSection>
+        <AboutMe />
+    </SectionContainer>
+  </div>
+
+  </main>
+</Layout>

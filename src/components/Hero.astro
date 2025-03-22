@@ -1,0 +1,50 @@
+---
+const personalImageAlt = "BalzaCode";
+import Badge from "@/components/Badge.astro";
+import SocialPill from "@/components/SocialPill.astro";
+import LinkedIn from "@/icons/LinkedIn.astro";
+import Mail from "@/icons/Mail.astro";
+---
+
+<div class="max-w-xl">
+  <div class="flex gap-4 mb-4">
+    <img
+      class="rounded-full shadow-lg size-16"
+      src="/Balzacode.jpg"
+      alt={personalImageAlt}
+    />
+
+    <a
+      class="flex justify-center items-center hover:scale-105 transition"
+      href="https://www.linkedin.com/in/cristian-balza-88a46721b/"
+      target="_blank"
+      rel="noopener"
+    >
+      <Badge>Disponible para trabajar</Badge>
+    </a>
+  </div>
+  <h1
+    class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white"
+  >
+    Soy BalzaCode!
+  </h1>
+
+  <p
+    class="mt-6 text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300"
+  >
+    1 Año De Experiencia,<strong> Desarrollador Web </strong> Soy de Caracas Venezuela.
+    Actualmente Frontend Dev Aspirante a FullStack Dev.
+  </p>
+
+  <nav class="flex gap-4 mt-5 md:mt-8">
+    <SocialPill href="https://www.linkedin.com/in/cristian-balza-88a46721b/">
+      <LinkedIn class="size-4" />
+      LinkedIn
+    </SocialPill>
+
+    <SocialPill href="mailto:devcrisnk23@gmail.com">
+      <Mail class="size-4" />
+      Devcrisnk23@gmail.com
+    </SocialPill>
+  </nav>
+</div>

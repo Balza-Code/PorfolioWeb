@@ -1,0 +1,104 @@
+---
+import Bootstrap from "@/icons/Bootstrap.astro";
+import Preview from "@/icons/Preview.astro";
+import Css from "../icons/Css.astro";
+import Html from "../icons/Html.astro";
+import Linkbutton from "./Linkbutton.astro";
+
+const TAGS = {
+  HTML: {
+    name: "HTML",
+    class: "bg-[#67331e] text-white",
+    icon: Html,
+  },
+
+  CSS: {
+    name: "CSS",
+    class: "bg-[#184c6b] text-white",
+    icon: Css,
+  },
+
+  BOOSTRAP: {
+    name: "Boostrap",
+    class: "bg-[#232258] text-white",
+    icon: Bootstrap,
+  },
+};
+
+const PROJECTS = [
+  {
+    title: "Sitio Web de Bienes Raices",
+    description:
+      "Sitio web de bienes raíces que presenta diversas ofertas de inmuebles y un blog de la marca.",
+    href: "https://quiet-taiyaki-cd1007.netlify.app/",
+    github: "#",
+    image: "/projects/BienesRaices.webp",
+    tags: [TAGS.HTML, TAGS.CSS],
+  },
+
+  {
+    title: "Tienda Virtual de Autopartes",
+    description:
+      "Plantilla de Ecommerce de auto partes. Diseño sencillo y elegante.",
+    href: "https://dulcet-lollipop-826bc3.netlify.app/",
+    image: "/projects/Ecom-cars.webp",
+    tags: [TAGS.HTML, TAGS.CSS, TAGS.BOOSTRAP],
+  },
+
+  {
+    title: "Landing Page De Servicio De Pintura",
+    description:
+      "Landing page de servicio de pintura profesional",
+    href: "https://dulcet-lollipop-826bc3.netlify.app/",
+    image: "/projects/octa.png",
+    tags: [TAGS.HTML, TAGS.CSS],
+  },
+];
+---
+
+<div class="flex flex-col gap-y-16">
+  {
+    PROJECTS.map(({ title, description, href, tags, github, image }) => (
+      <article class="flex flex-col gap-x-3 space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+        <div class="w-full md:w-1/2">
+          <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+            <img
+              class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+              src={image}
+              alt={title}
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="w-full md:w-1/2 md:max-w-lg">
+          <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">
+            {title}
+          </h3>
+
+          <div class="flex flex-wrap mt-2">
+          <ul class="flex gap-x-2 flex-row">
+            {tags.map((tag) => (
+              <li>
+                <span
+                  class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 items-center`}
+                >
+                  <tag.icon class="size-3" />
+                  {tag.name}
+                </span>
+              </li>
+            ))}
+          </ul>
+          <div class="mt-2 text-gray-700 dark:text-gray-400 mb-4 text-pretty">{description}</div>
+          <footer class="flex items-end justify-start gap-x-4 mt-4">
+           
+            <Linkbutton href={href}>
+              <Preview />
+              Ir al Sitio Web
+            </Linkbutton>
+          </footer>
+          </div>
+        </div>
+      </article>
+    ))
+  }
+</div>
